@@ -1,0 +1,161 @@
+
+  <div class="row" style="margin-top: 10px;">
+  
+
+<div class="input-group col-md-3">
+  <input class="input-field col-md-9" type="text" name="daterangeInput" daterangepicker [options]="options" (selected)="selectedDate($event, daterange)">
+  <span class="input-group-append bg-white ">
+      <span class="input-group-text bg-transparent">
+          <i class="fa fa-calendar" style="color: #ff007f;"></i>
+      </span>
+  </span>
+</div>
+
+  <!-- <input date-range-picker class="form-control date-picker" type="text" ng-model="date" min="'2014-02-23'" max="'2015-02-25'"/> -->
+
+  <!-- <input type="text" name="daterange" value="01/01/2018 - 01/15/2018" /> -->
+    
+      <div ngbDropdown class="d-inline-block col-md-2 col-half-offset ">
+        <button  class="btn btn-secondary btn-lg btn-block text-secondary dropdown-toggle-split" style="background-color: #ffffff;" id="dropdownBasic1" ngbDropdownToggle >Employee</button>
+        <ul ngbDropdownMenu aria-labelledby="dropdownBasic1">
+          <li> All <a href="#" class="small" data-value="option1" tabIndex="-1"><input style="float: right;" checked="checked" type="checkbox" class="checked"/></a></li>
+          <li> Brandan Lakes <a href="#" class="small" data-value="option2" tabIndex="-1"><input style="float: right;" type="checkbox"/></a></li>
+          <li> James Lang <a href="#" class="small" data-value="option3" tabIndex="-1"><input style="float: right;" type="checkbox"/></a></li>
+          <li> Joes Hernadez <a href="#" class="small" data-value="option4" tabIndex="-1"><input style="float: right;" type="checkbox"/></a></li>
+          <li> Lulu Liu <a href="#" class="small" data-value="option5" tabIndex="-1"><input style="float: right;" type="checkbox"/></a></li>
+        </ul>
+      </div>
+    
+  
+    
+      <div ngbDropdown class="d-inline-block col-md-2 col-half-offset">
+        <button  class="btn btn-secondary btn-lg btn-block text-secondary" style="background-color: #ffffff;" id="dropdownBasic2" ngbDropdownToggle>Revenue Center</button>
+        <ul ngbDropdownMenu aria-labelledby="dropdownBasic2">
+          <li> All <a href="#" class="small" data-value="option1" tabIndex="-1"><input style="float: right;" type="checkbox"/></a></li>
+          <li> Revenue Center 1 <a href="#" class="small" data-value="option2" tabIndex="-1"><input style="float: right;" type="checkbox"/></a></li>
+          <li> Revenue Center 2 <a href="#" class="small" data-value="option3" tabIndex="-1"><input style="float: right;" type="checkbox"/></a></li>
+          <li> Revenue Center 3 <a href="#" class="small" data-value="option4" tabIndex="-1"><input style="float: right;" type="checkbox"/></a></li>
+          <li> Revenue Center 4 <a href="#" class="small" data-value="option5" tabIndex="-1"><input style="float: right;" type="checkbox"/></a></li>
+        </ul>
+      </div>
+    
+  
+    
+      <div ngbDropdown class="d-inline-block col-md-2 col-half-offset">
+        <button  class="btn btn-secondary btn-lg btn-block text-secondary" style="background-color: #ffffff;" id="dropdownBasic3" ngbDropdownToggle>Tipout</button>
+        <ul ngbDropdownMenu aria-labelledby="dropdownBasic3">
+          <button ngbDropdownItem>Tipout</button>
+        <button ngbDropdownItem>No Tipout</button>
+        </ul>
+      </div>
+    
+  
+    
+      <div ngbDropdown class="d-inline-block col-md-2 col-half-offset">
+        <button  class="btn btn-secondary btn-lg btn-block text-secondary" style="background-color: #ffffff;" id="dropdownBasic4" ngbDropdownToggle>Export</button>
+        <ul ngbDropdownMenu aria-labelledby="dropdownBasic4">
+        </ul>
+      </div>
+    
+  </div>
+  
+  <div class="br" style=" margin: 2rem 0"></div>
+  
+  <!-- Employee Table Section Begins -->
+    <div *ngFor="let employee of employeeDetails">
+  
+        <div class="row">
+  
+          <div class="col-md-6">
+            <div class="row">
+              <h4 style="color: #ff007f; margin-left: 10px;"><b> {{employee.name}} </b> </h4>
+            </div>
+            <div class="row" style="margin-left: 10px;">
+             <b> {{employee.id}} </b>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="row">
+              <div class="col-4">
+                <div class="row">
+                  <span><b>Total Card Sale</b></span>
+                </div>
+                <div class="row">
+                 <b> $1753.96 </b>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="row">
+                  <span><b>Total Cash Sales</b></span>
+                </div>
+                <div class="row">
+                  <b> $101.86 </b>
+                </div>
+              </div>
+              <div class="col-4">
+                <div class="row">
+                  <span><b>Total Tip</b></span>
+                </div>
+                <div class="row">
+                <b> $63.61 </b>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+        </div>
+  
+        <div class="br" style=" margin: 2rem 0"></div>
+  
+        <div >
+          <table class="table  table-sm">
+            <thead>
+            <tr>
+              <th  scope="col">TYPE</th>
+              <th scope="col">QTY</th>
+              <th scope="col">AMOUNT</th>
+              <th scope="col">TIP</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let card of employee.cardDetails">
+              <th scope="row">{{ card.type }}</th>
+              <td>{{ card.qty }}</td>
+              <td>{{ card.amount }}</td>
+              <td>{{ card.tip }}</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="row">
+          <div class="col-md-8">
+          </div>
+          <div class="col-md-4">
+            <div class="row">
+              <div class="col-6">
+                <div class="row">
+                  <span><b>Cash Drop</b></span>
+                </div>
+                <div class="row">
+                  <span><b> $1753.96</b></span>
+                </div>
+              </div>
+              <div class="col-6">
+                <div class="row">
+                  <span><b>Total Tip</b></span>
+                </div>
+                <div class="row">
+                  <span><b> $1690.24</b></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="hr" style="border-top: 3px solid #ff007f; margin: 3rem 0"></div>
+    </div>
+  <!-- Employee Table Section Ends -->
+
+  
+  
+  
